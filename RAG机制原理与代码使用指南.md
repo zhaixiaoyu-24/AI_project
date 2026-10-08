@@ -116,9 +116,9 @@ Milvus 内部用 HNSW 索引（分层图结构的近似最近邻算法），在�
 脚本从环境变量读取，不写硬编码：
 
 ```bash
-KIMI_API_KEY=sk-你的key
-KIMI_BASE_URL=https://api.moonshot.cn/v1
-KIMI_MODEL=kimi-latest        # 注意：推理模型（如 kimi-thinking）只支持 temperature=1
+API_KEY=sk-你的key
+BASE_URL=https://api.moonshot.cn/v1
+AI_MODEL=kimi-latest        # 注意：推理模型（如 kimi-thinking）只支持 temperature=1
 ```
 
 ### 第 2 步：确认模型文件在本地

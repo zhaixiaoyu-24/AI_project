@@ -20,9 +20,9 @@ DIM = 1024
 TOP_K = 2
 MILVUS_DB_FILE = "milvus_rag.db"
 # Kimi 配置
-KIMI_API_KEY = os.getenv("KIMI_API_KEY")  # 从环境变量读取，不要直接写key到代码
-KIMI_BASE_URL = os.getenv("KIMI_BASE_URL")
-KIMI_MODEL = os.getenv("KIMI_MODEL")
+API_KEY = os.getenv("API_KEY")  # 从环境变量读取，不要直接写key到代码
+BASE_URL = os.getenv("BASE_URL")
+AI_MODEL = os.getenv("AI_MODEL")
 
 # 加载BGE-M3，适配pytorch_model.bin
 model_path = "/home/administrator/rag_project/bge-m3"
@@ -35,14 +35,14 @@ embed_model = SentenceTransformer(
 # Kimi客户端初始化
 
 client_kimi = OpenAI(
-    api_key=KIMI_API_KEY, base_url=KIMI_BASE_URL, http_client=httpx.Client(timeout=30.0)
+    api_key=API_KEY, base_url=BASE_URL, http_client=httpx.Client(timeout=30.0)
 )
 
 
 # 【替换为真实Kimi API调用】
 def llm_answer(prompt: str):
     resp = client_kimi.chat.completions.create(
-        model=KIMI_MODEL,
+        model=AI_MODEL,
         messages=[
             {
                 "role": "system",
